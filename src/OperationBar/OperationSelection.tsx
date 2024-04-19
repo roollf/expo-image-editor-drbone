@@ -103,7 +103,8 @@ export function OperationSelection() {
 
   return (
     <>
-      <ScrollView style={styles.opRow} horizontal>
+      {/* modificação do style para contentContainerStyle */}
+      <ScrollView contentContainerStyle={styles.opRow} horizontal>
         {
           //@ts-ignore
           filteredOperations[selectedOperationGroup].map(
@@ -151,8 +152,12 @@ export function OperationSelection() {
 
 const styles = StyleSheet.create({
   opRow: {
-    height: 80,
+    // alteração do height para 100% já que o style foi alterado para contentContainerStyle
+    // original height value 80
+    height: "100%",
     width: "100%",
+    // adição do justifyContent como space-between
+    justifyContent: "space-between",
     // adição da cor referente ao surfaceVariant
     // original color #333
     backgroundColor: "#DDE3EA",
