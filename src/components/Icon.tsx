@@ -14,7 +14,9 @@ export function Icon(props: IIconProps) {
       <MaterialIcons
         name={props.iconID}
         size={26}
-        color={props.disabled ? "grey" : "white"}
+        // adição da cor referente ao onSurfaceVariant
+        // original color white
+        color={props.disabled ? "grey" : "#41484D"}
       />
       <Text style={[styles.text, props.disabled && { color: "grey" }]}>
         {props.text}
@@ -33,7 +35,11 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
   },
   text: {
-    color: "#fff",
+    // adição da cor referente ao onsurfaceVariant
+    // original color #fff
+    color: "#41484D",
     textAlign: "center",
+    // adição de peso da fonte para melhor destacar o texto
+    fontWeight: "700",
   },
 });

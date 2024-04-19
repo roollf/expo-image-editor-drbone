@@ -14,11 +14,20 @@ export function Crop() {
     <View style={styles.container}>
       <IconButton
         iconID="close"
-        text="Cancel"
+        // modificação do texto da ação para Cancelar
+        // original text Cancel
+        text="Cancelar"
         onPress={() => setEditingMode("operation-select")}
       />
-      <Text style={styles.prompt}>Adjust window to crop</Text>
-      <IconButton iconID="check" text="Done" onPress={onPerformCrop} />
+      {/* remoção do texto de apoio na tela de Crop */}
+      {/* <Text style={styles.prompt}>Adjust window to crop</Text> */}
+      <IconButton
+        iconID="check"
+        // modificação do texto da ação para Feito
+        // original text Done
+        text="Feito"
+        onPress={onPerformCrop}
+      />
     </View>
   );
 }
@@ -30,10 +39,13 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     paddingHorizontal: "2%",
+    // adição do backgroundColor para a cor referente ao surfaceVariant
+    backgroundColor: "#DDE3EA",
   },
-  prompt: {
-    color: "#fff",
-    fontSize: 21,
-    textAlign: "center",
-  },
+  // comentado estilo prompt já que não está sendo utilizado
+  // prompt: {
+  //   color: "#fff",
+  //   fontSize: 21,
+  //   textAlign: "center",
+  // },
 });

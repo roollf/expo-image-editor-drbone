@@ -33,12 +33,16 @@ interface Operations {
 const operations: Operations = {
   transform: [
     {
-      title: "Crop",
+      // modificação do título da ação para Recortar
+      // original title Crop
+      title: "Recortar",
       iconID: "crop",
       operationID: "crop",
     },
     {
-      title: "Rotate",
+      // modificação do título da ação para Rotacionar
+      // original title Rotate
+      title: "Rotacionar",
       iconID: "rotate-90-degrees-ccw",
       operationID: "rotate",
     },
@@ -149,7 +153,9 @@ const styles = StyleSheet.create({
   opRow: {
     height: 80,
     width: "100%",
-    backgroundColor: "#333",
+    // adição da cor referente ao surfaceVariant
+    // original color #333
+    backgroundColor: "#DDE3EA",
   },
   opContainer: {
     height: "100%",

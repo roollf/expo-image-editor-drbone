@@ -75,21 +75,34 @@ export function Rotate() {
       <View style={[styles.row, { paddingHorizontal: "20%" }]}>
         <IconButton
           iconID="rotate-left"
-          text="Rotate -90"
+          // modificação do texto da ação para Rotacionar -90
+          // original text Rotate -90
+          text="Rotacionar -90"
           onPress={() => rotate("ccw")}
         />
         <IconButton
           iconID="rotate-right"
-          text="Rotate +90"
+          // modificação do texto da ação para Rotacionar +90
+          // original text Rotate +90
+          text="Rotacionar +90"
           onPress={() => rotate("cw")}
         />
       </View>
       <View style={styles.row}>
-        <IconButton iconID="close" text="Cancel" onPress={() => onClose()} />
-        <Text style={styles.prompt}>Rotate</Text>
+        <IconButton
+          iconID="close"
+          // modificação do texto da ação para Cancelar
+          // original text Cancel
+          text="Cancelar"
+          onPress={() => onClose()}
+        />
+        {/* remoção do texto de apoio na tela de Rotate */}
+        {/* <Text style={styles.prompt}>Rotate</Text> */}
         <IconButton
           iconID="check"
-          text="Done"
+          // modificação do texto da ação para Feito
+          // original text Done
+          text="Feito"
           onPress={() => setEditingMode("operation-select")}
         />
       </View>
@@ -103,12 +116,15 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "space-between",
     alignItems: "center",
+    // adição do backgroundColor para a cor referente ao surfaceVariant
+    backgroundColor: "#DDE3EA",
   },
-  prompt: {
-    color: "#fff",
-    fontSize: 21,
-    textAlign: "center",
-  },
+  // comentado estilo prompt já que não está sendo utilizado
+  // prompt: {
+  //   color: "#fff",
+  //   fontSize: 21,
+  //   textAlign: "center",
+  // },
   row: {
     width: "100%",
     height: 80,
