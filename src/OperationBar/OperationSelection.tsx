@@ -166,7 +166,9 @@ const styles = StyleSheet.create({
     height: "100%",
     justifyContent: "center",
     alignItems: "center",
-    marginLeft: 16,
+    // alteração do marginLeft para marginHorizontal
+    // original property marginLeft
+    marginHorizontal: 16,
   },
   modeRow: {
     height: 80,
