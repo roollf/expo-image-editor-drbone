@@ -10,7 +10,6 @@ import { useEffect } from "react";
 import { usePerformCrop } from "./customHooks/usePerformCrop";
 
 function ControlBar() {
-  //
   const [editingMode, setEditingMode] = useRecoilState(editingModeState);
   const [imageData] = useRecoilState(imageDataState);
   const [processing, setProcessing] = useRecoilState(processingState);
@@ -58,23 +57,26 @@ function ControlBar() {
   }, [imageData, editingMode]);
 
   return (
-    <View style={styles.container}>
-      <IconButton
-        iconID="arrow-back"
-        // modificação do texto da ação para Voltar
-        // original text Back
-        text="Voltar"
-        onPress={onPressBack}
-      />
-      <IconButton
-        iconID="done"
-        // modificação do texto da ação para Feito
-        // original text Done
-        text="Feito"
-        onPress={onFinishEditing}
-        disabled={shouldDisableDoneButton}
-      />
-    </View>
+    <>
+    {/* comentado trecho do código que não será mais utilizado na aplicação */}
+      {/* <View style={styles.container}>
+        <IconButton
+          iconID="arrow-back"
+          // modificação do texto da ação para Voltar
+          // original text Back
+          text="Voltar"
+          onPress={onPressBack}
+        />
+        <IconButton
+          iconID="done"
+          // modificação do texto da ação para Feito
+          // original text Done
+          text="Feito"
+          onPress={onFinishEditing}
+          disabled={shouldDisableDoneButton}
+        />
+      </View> */}
+    </>
   );
 }
 
@@ -82,14 +84,15 @@ export { ControlBar };
 
 const styles = StyleSheet.create({
   container: {
-    width: "100%",
-    height: 80,
-    // adição da cor referente ao surfaceVariant
-    // original color #333
-    backgroundColor: "#DDE3EA",
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    paddingHorizontal: 4,
+    // comentado estilização que não será mais utilizada na aplicação
+    // width: "100%",
+    // height: 80,
+    // // adição da cor referente ao surfaceVariant
+    // // original color #333
+    // backgroundColor: "#DDE3EA",
+    // flexDirection: "row",
+    // justifyContent: "space-between",
+    // alignItems: "center",
+    // paddingHorizontal: 4,
   },
 });

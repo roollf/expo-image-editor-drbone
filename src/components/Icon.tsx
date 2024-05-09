@@ -6,35 +6,44 @@ export interface IIconProps {
   disabled?: boolean;
   iconID: React.ComponentProps<typeof MaterialIcons>["name"];
   text: string;
+  iconSize?: number;
+  iconColor?: string;
 }
+
+// adicionada novas propriedades referentes a estilização dos ícones (iconSize, iconColor)
 
 export function Icon(props: IIconProps) {
   return (
     <View style={styles.container}>
       <MaterialIcons
         name={props.iconID}
-        size={26}
+        // adição da propriedade iconSize
+        size={props.iconSize ? props.iconSize : 26}
         // adição da cor referente ao onSurfaceVariant
         // original color white
-        color={props.disabled ? "grey" : "#41484D"}
+        // adição da propriedade iconColor
+        color={props.iconColor ? props.iconColor :  "#4E616D"}
       />
-      <Text style={[styles.text, props.disabled && { color: "grey" }]}>
+      {/* comentado trecho do código que não será mais utilizado na aplicação */}
+      {/* <Text style={[styles.text, props.disabled && { color: "grey" }]}>
         {props.text}
-      </Text>
+      </Text> */}
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    height: 64,
-    width: 80,
+    // retirada das propriedades height e width
+    // height: 64,
+    // width: 80,
     flexDirection: "column",
     justifyContent: "space-between",
     alignItems: "center",
     paddingVertical: 8,
   },
   text: {
+    // comentado estilização que não será mais utilizada na aplicação
     // adição da cor referente ao onsurfaceVariant
     // original color #fff
     color: "#41484D",
