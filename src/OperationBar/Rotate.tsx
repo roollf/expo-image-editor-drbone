@@ -75,6 +75,8 @@ export function Rotate() {
       <View style={[styles.row, { paddingHorizontal: "20%" }]}>
         <IconButton
           iconID="rotate-left"
+          // adição da propriedade de iconSize para os ícones da aplicação
+          iconSize={40}
           // modificação do texto da ação para Rotacionar -90
           // original text Rotate -90
           text="Rotacionar -90"
@@ -82,6 +84,8 @@ export function Rotate() {
         />
         <IconButton
           iconID="rotate-right"
+          // adição da propriedade de iconSize para os ícones da aplicação
+          iconSize={40}
           // modificação do texto da ação para Rotacionar +90
           // original text Rotate +90
           text="Rotacionar +90"
@@ -91,6 +95,8 @@ export function Rotate() {
       <View style={styles.row}>
         <IconButton
           iconID="close"
+          // adição da propriedade de iconSize para os ícones da aplicação
+          iconSize={40}
           // modificação do texto da ação para Cancelar
           // original text Cancel
           text="Cancelar"
@@ -100,6 +106,8 @@ export function Rotate() {
         {/* <Text style={styles.prompt}>Rotate</Text> */}
         <IconButton
           iconID="check"
+          // adição da propriedade de iconSize para os ícones da aplicação
+          iconSize={40}
           // modificação do texto da ação para Feito
           // original text Done
           text="Feito"
@@ -131,6 +139,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    paddingHorizontal: "2%",
+    // alterado valor do paddingHorizontal
+    // original value 2%
+    paddingHorizontal: "10%",
   },
 });

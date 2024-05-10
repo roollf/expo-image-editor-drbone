@@ -8,9 +8,16 @@ import {
 } from "react-native";
 import { Icon } from "../components/Icon";
 import { IconButton } from "../components/IconButton";
-import { editingModeState, EditingModes } from "../Store";
+// importação dos elementos referentes a ControlBar (imageDataState, processingState)
+import {
+  editingModeState,
+  EditingModes,
+  imageDataState,
+  processingState,
+} from "../Store";
 import { useRecoilState } from "recoil";
-import { useContext } from "react";
+// importação dos elementos referentes a ControlBar (useEffect)
+import { useContext, useEffect } from "react";
 import {
   AdjustmentOperations,
   EditingOperations,
@@ -18,6 +25,8 @@ import {
   TransformOperations,
 } from "..";
 import { useMemo } from "react";
+// importação dos elementos referentes a ControlBar (usePerformCrop)
+import { usePerformCrop } from "../customHooks/usePerformCrop";
 
 interface Operation<T> {
   title: string;
@@ -101,6 +110,35 @@ export function OperationSelection() {
     isAdjustmentOnly,
   ]);
 
+  // adição dos métodos da ControlBar para a tela de OperationSelect
+  const [editingMode] = useRecoilState(editingModeState);
+  const [imageData] = useRecoilState(imageDataState);
+  const [processing, setProcessing] = useRecoilState(processingState);
+  const { mode, onCloseEditor, onEditingComplete } = useContext(EditorContext);
+
+  const performCrop = usePerformCrop();
+
+  const onFinishEditing = async () => {
+    if (mode === "full") {
+      setProcessing(false);
+      onEditingComplete(imageData);
+      onCloseEditor();
+    } else if (mode === "crop-only") {
+      await performCrop();
+    }
+  };
+
+  useEffect(() => {
+    if (
+      mode === "crop-only" &&
+      imageData.uri &&
+      editingMode === "operation-select"
+    ) {
+      onEditingComplete(imageData);
+      onCloseEditor();
+    }
+  }, [imageData, editingMode]);
+
   return (
     <>
       {/* modificação do style para contentContainerStyle */}
@@ -113,14 +151,47 @@ export function OperationSelection() {
                 <IconButton
                   text={item.title}
                   iconID={item.iconID}
+                  // adição da propriedade de iconSize para os ícones da aplicação
+                  iconSize={40}
                   onPress={() => setEditingMode(item.operationID)}
                 />
               </View>
             )
           )
         }
+        {/* adicionado trecho no código para refletir modificações do design */}
+        <View
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <TouchableOpacity
+            style={{
+              height: 60,
+              width: 60,
+              borderRadius: 8,
+              backgroundColor: "#1E6586",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <IconButton
+              iconID="done"
+              // adição da propriedade de iconSize para os ícones da aplicação
+              iconSize={40}
+              // adição da propriedade de iconColor para os ícones da aplicação
+              iconColor="#FFFFFF"
+              text="Feito"
+              onPress={onFinishEditing}
+            />
+          </TouchableOpacity>
+        </View>
       </ScrollView>
-      {!isTransformOnly && !isAdjustmentOnly ? (
+      {/* comentado trecho do código que não será mais utilizado na aplicação */}
+      {/* {!isTransformOnly && !isAdjustmentOnly ? (
         <View style={styles.modeRow}>
           <TouchableOpacity
             style={[
@@ -145,7 +216,7 @@ export function OperationSelection() {
             <Icon iconID="tune" text="Adjust" />
           </TouchableOpacity>
         </View>
-      ) : null}
+      ) : null} */}
     </>
   );
 }
@@ -161,12 +232,15 @@ const styles = StyleSheet.create({
     // adição da cor referente ao surfaceVariant
     // original color #333
     backgroundColor: "#DDE3EA",
+    // adição da propriedade paddingHorizontal
+    paddingHorizontal: 50
   },
   opContainer: {
     height: "100%",
     justifyContent: "center",
     alignItems: "center",
-    marginLeft: 16,
+    // comentado propriedade marginHorizontal já que não será mais utilizada
+    // marginHorizontal: 16,
   },
   modeRow: {
     height: 80,

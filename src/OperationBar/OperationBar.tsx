@@ -42,6 +42,10 @@ const styles = StyleSheet.create({
     height: 160,
     width: "100%",
     backgroundColor: "#333",
-    justifyContent: "center",
+    // modificado propriedade justifyContent
+    // original value center
+    justifyContent: "space-between",
+    // adição da propriedade alignItems
+    alignItems: "stretch"
   },
 });
