@@ -36,10 +36,8 @@
   "dependencies": {
     "@miblanchard/react-native-slider": "^1.5.0",
     "@react-hook/throttle": "^2.2.0",
-    "expo-image-picker": "^14.7.1",
     "modal-enhanced-react-native-web": "^0.2.0",
-    "no-scroll": "^2.1.1",
-    "react-responsive": "^10.0.0"
+    "no-scroll": "^2.1.1"
   },
   "peerDependencies": {
     "@expo/vector-icons": "*",
