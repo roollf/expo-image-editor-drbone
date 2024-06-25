@@ -15,7 +15,7 @@ export function Crop() {
       <IconButton
         iconID="close"
         // adição da propriedade de iconSize para os ícones da aplicação
-        iconSize={40}
+        iconSize={32}
         // modificação do texto da ação para Cancelar
         // original text Cancel
         text="Cancelar"
@@ -26,7 +26,7 @@ export function Crop() {
       <IconButton
         iconID="check"
         // adição da propriedade de iconSize para os ícones da aplicação
-        iconSize={40}
+        iconSize={32}
         // modificação do texto da ação para Feito
         // original text Done
         text="Feito"

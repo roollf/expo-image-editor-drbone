@@ -5,6 +5,7 @@ import {
   View,
   TouchableOpacity,
   ScrollView,
+  Text,
 } from "react-native";
 import { Icon } from "../components/Icon";
 import { IconButton } from "../components/IconButton";
@@ -51,7 +52,7 @@ const operations: Operations = {
     {
       // modificação do título da ação para Rotacionar
       // original title Rotate
-      title: "Rotacionar",
+      title: "Girar 90º",
       iconID: "rotate-90-degrees-ccw",
       operationID: "rotate",
     },
@@ -152,7 +153,7 @@ export function OperationSelection() {
                   text={item.title}
                   iconID={item.iconID}
                   // adição da propriedade de iconSize para os ícones da aplicação
-                  iconSize={40}
+                  iconSize={32}
                   onPress={() => setEditingMode(item.operationID)}
                 />
               </View>
@@ -163,31 +164,45 @@ export function OperationSelection() {
         <View
           style={{
             display: "flex",
-            flexDirection: "row",
+            flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
           }}
         >
           <TouchableOpacity
             style={{
-              height: 60,
-              width: 60,
-              borderRadius: 8,
+              height: 32,
+              width: 32,
+              borderRadius: 4,
               backgroundColor: "#1E6586",
               justifyContent: "center",
               alignItems: "center",
             }}
           >
             <IconButton
-              iconID="done"
+              iconID="arrow-forward"
               // adição da propriedade de iconSize para os ícones da aplicação
-              iconSize={40}
+              iconSize={22}
               // adição da propriedade de iconColor para os ícones da aplicação
               iconColor="#FFFFFF"
               text="Feito"
               onPress={onFinishEditing}
             />
           </TouchableOpacity>
+          <Text
+            style={{
+              paddingTop: 8,
+              color: "#41484D",
+              textAlign: "center",
+              fontWeight: "700",
+              fontSize: 14,
+              fontStyle: "normal",
+              lineHeight: 20,
+              letterSpacing: 0.5,
+            }}
+          >
+            Enviar
+          </Text>
         </View>
       </ScrollView>
       {/* comentado trecho do código que não será mais utilizado na aplicação */}
@@ -233,7 +248,7 @@ const styles = StyleSheet.create({
     // original color #333
     backgroundColor: "#DDE3EA",
     // adição da propriedade paddingHorizontal
-    paddingHorizontal: 50
+    paddingHorizontal: 50,
   },
   opContainer: {
     height: "100%",

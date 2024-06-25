@@ -5,7 +5,7 @@ import { MaterialIcons } from "@expo/vector-icons";
 export interface IIconProps {
   disabled?: boolean;
   iconID: React.ComponentProps<typeof MaterialIcons>["name"];
-  text: string;
+  text?: string;
   iconSize?: number;
   iconColor?: string;
 }
@@ -24,9 +24,11 @@ export function Icon(props: IIconProps) {
         color={props.iconColor ? props.iconColor : "#41484D"}
       />
       {/* comentado trecho do código que não será mais utilizado na aplicação */}
-      {/* <Text style={[styles.text, props.disabled && { color: "grey" }]}>
-        {props.text}
-      </Text> */}
+      {props.text ? (
+        <Text style={[styles.text, props.disabled && { color: "grey" }]}>
+          {props.text}
+        </Text>
+      ) : null}
     </View>
   );
 }
@@ -39,15 +41,20 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "space-between",
     alignItems: "center",
-    paddingVertical: 8,
+    // paddingVertical: 8,
   },
   text: {
     // comentado estilização que não será mais utilizada na aplicação
     // adição da cor referente ao onsurfaceVariant
     // original color #fff
-    // color: "#41484D",
-    // textAlign: "center",
-    // adição de peso da fonte para melhor destacar o texto
-    // fontWeight: "700",
+    color: "#41484D",
+    textAlign: "center",
+    // adição de características para refletir melhor o projeto do Figma
+    fontWeight: "700",
+    fontSize: 14,
+    fontStyle: "normal",
+    lineHeight: 20,
+    letterSpacing: 0.5,
+    paddingTop: 8,
   },
 });

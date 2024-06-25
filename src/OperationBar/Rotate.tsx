@@ -76,7 +76,7 @@ export function Rotate() {
         <IconButton
           iconID="rotate-left"
           // adição da propriedade de iconSize para os ícones da aplicação
-          iconSize={40}
+          iconSize={32}
           // modificação do texto da ação para Rotacionar -90
           // original text Rotate -90
           text="Rotacionar -90"
@@ -85,7 +85,7 @@ export function Rotate() {
         <IconButton
           iconID="rotate-right"
           // adição da propriedade de iconSize para os ícones da aplicação
-          iconSize={40}
+          iconSize={32}
           // modificação do texto da ação para Rotacionar +90
           // original text Rotate +90
           text="Rotacionar +90"
@@ -96,7 +96,7 @@ export function Rotate() {
         <IconButton
           iconID="close"
           // adição da propriedade de iconSize para os ícones da aplicação
-          iconSize={40}
+          iconSize={32}
           // modificação do texto da ação para Cancelar
           // original text Cancel
           text="Cancelar"
@@ -107,7 +107,7 @@ export function Rotate() {
         <IconButton
           iconID="check"
           // adição da propriedade de iconSize para os ícones da aplicação
-          iconSize={40}
+          iconSize={32}
           // modificação do texto da ação para Feito
           // original text Done
           text="Feito"
