@@ -185,7 +185,7 @@ export function OperationSelection() {
               iconSize={22}
               // adição da propriedade de iconColor para os ícones da aplicação
               iconColor="#FFFFFF"
-              text="Feito"
+              // text="Feito"
               onPress={onFinishEditing}
             />
           </TouchableOpacity>
